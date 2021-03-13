@@ -8,6 +8,8 @@ from keras import backend as K
 from keras import regularizers
 from keras.layers import LSTMCell
 
+import pandas as pd
+
 
 class LSTMCell1(LSTMCell):
     """Original LSTM with non reduced parameters."""
@@ -115,16 +117,21 @@ def read_data(file):
     
     Data will likely be a csv formatted file.
     """
-    return 0
+    data = pd.read_csv(file)  
+
+    return data
 
 
-def clean_data():
+def clean_data(file):
     """
     Process the data.
     
     Data cleaning may include reduction or augmentation depending on how skewed the data is.
     """
-    return 0
+    df = read_data(file).drop_duplicates( subset = ['TITLE'] )
+    dt = df[['CATEGORY', 'TITLE']].sample(50000, random_state = 22)
+    cat_count = pd.DataFrame(dt.CATEGORY.value_counts())
+    return cat_count
 
 
 def get_keras_model(num_hidden_layers, 
