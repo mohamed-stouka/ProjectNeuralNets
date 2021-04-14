@@ -1,8 +1,14 @@
-name: example-environment
+name: base
+channels:
+  - defaults
 
 dependencies:
+  - jupyter
+  - pytest
   - python
   - numpy
+  - pylint
+  - pdoc3
   - pip
   - pip:
     - skopt
