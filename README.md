@@ -1,5 +1,5 @@
 # ProjectNeuralNets
-This is a repo for CMSE802 project.
+This is a repo for CMSE802 project "Hyperparameters Tuning for Long Short-Term Memory RNNs".
 
 This project is based on the work of https://github.com/mardani72.
 
